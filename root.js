@@ -6,14 +6,20 @@ const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 const content = document.getElementById('content');
 
-// creating function
+// creating function for the content div
+function createPoke(pokemon){
+    content.innerHTML = `<h1>${pokemon.name}</h1>
+    <img class='pokemon-image' src=${pokemon.sprites.front_default}>`
+}
+
+// creating function fetchPoke
 function fetchPoke(url){
     console.log(url);     //check url coming
     fetch(url)              //fetch from url
     .then(response => response.json()) //turn response into json
     .then(data => { 
         console.log(data);
-        createPoke(data);
+        createPoke(data); //create Poke page
     })
 
 };
